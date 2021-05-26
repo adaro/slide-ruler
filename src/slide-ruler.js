@@ -258,7 +258,6 @@ class sliderRuler {
       if (i % 10 === 0) { // TODO ALSO DETERMINS THE LOCATION OF THE BOTTOM NUMBER
         context.font = `${fontSize}px Arial`;
         let value = Math.round(i / 10) / (derivative / 10)
-        console.log(this.options.unit)
         context.fillText(
           value.toString() + (this.options.unit === 'ft' ? ' in' : ''),
           origin.x + (i - startValue / precision) * divide,

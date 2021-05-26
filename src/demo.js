@@ -19,7 +19,7 @@ new DemoComponent({
 
 new DemoComponent({
   typeName: 'Weight',
-  unit: 'ft',
+  unit: 'kg',
   maxValue: 200,
   minValue: 30,
   currentValue: 73.1,
