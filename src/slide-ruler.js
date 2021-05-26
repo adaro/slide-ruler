@@ -194,6 +194,9 @@ class sliderRuler {
           ? currentValue
           : maxValue
         : minValue;
+
+
+
     currentValue =
       (Math.round((currentValue * 10) / precision) * precision) / 10;
     this.options.currentValue = currentValue;
@@ -242,7 +245,7 @@ class sliderRuler {
       // 画线到刻度高度，10的位数就加高
       context.lineTo(
         origin.x + (i - startValue / precision) * divide,
-        i % 10 === 0 ? heightDecimal : heightDigit
+        i % 10 === 0 ? heightDecimal : heightDigit // THIS DETERMINS HOW MANY TICKS
       );
       context.lineWidth = lineWidth;
       // 10的位数就加深
@@ -252,10 +255,12 @@ class sliderRuler {
       context.fillStyle = fontColor;
       context.textAlign = 'center';
       context.textBaseline = 'top';
-      if (i % 10 === 0) {
+      if (i % 10 === 0) { // TODO ALSO DETERMINS THE LOCATION OF THE BOTTOM NUMBER
         context.font = `${fontSize}px Arial`;
+        let value = Math.round(i / 10) / (derivative / 10)
+        console.log(this.options.unit)
         context.fillText(
-          Math.round(i / 10) / (derivative / 10),
+          value.toString() + (this.options.unit === 'ft' ? ' in' : ''),
           origin.x + (i - startValue / precision) * divide,
           fontMarginTop
         );

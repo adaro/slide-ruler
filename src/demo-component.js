@@ -40,14 +40,15 @@ class DemoComponent {
   }
 
   _renderRuler() {
-    const {maxValue, minValue, currentValue, precision = 1} = this.options;
+    const {maxValue, minValue, currentValue, unit, precision = 1} = this.options;
     new SlideRuler({
       el: this.options.container,
       handleValue: this.handleValue.bind(this),
       maxValue: maxValue,
       minValue: minValue,
       currentValue: currentValue,
-      precision: precision
+      precision: precision,
+      unit:unit
     });
   }
 
